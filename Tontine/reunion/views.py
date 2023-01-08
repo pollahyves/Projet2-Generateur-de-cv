@@ -1,4 +1,4 @@
-from django.shortcuts import redirect render
+from django.shortcuts import redirect ,render
 from django.contrib.auth import authenticate,login
 
 # Create your views here.
