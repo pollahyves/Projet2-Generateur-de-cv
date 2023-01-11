@@ -1,6 +1,6 @@
 from django.urls import path
 from reunion.views import register,home,comissaire,secretaire,membre,president
-from reunion.models import Candidat
+
 
 urlpatterns = [
     path('',home,name='home'),
