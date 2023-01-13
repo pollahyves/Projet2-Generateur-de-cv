@@ -6,11 +6,11 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-class User(AbstractUser):
-    is_comissaire = models.BooleanField(default=False)
-    is_president = models.BooleanField(default=False)
-    is_secretaire = models.BooleanField(default=False)
-    is_membre = models.BooleanField(default=True)
+# class User(AbstractUser):
+#     is_comissaire = models.BooleanField(default=False)
+#     is_president = models.BooleanField(default=False)
+#     is_secretaire = models.BooleanField(default=False)
+#     is_membre = models.BooleanField(default=True)
 
 class AppartenirTontine(models.Model):
     id_membre = models.ForeignKey('Membre', models.DO_NOTHING, db_column='id_membre' )
@@ -111,15 +111,19 @@ class Fond(models.Model):
         db_table = 'Fond'
 
 
-class Membre(models.Model):
+class Membre(AbstractUser):
     id_membre = models.AutoField(primary_key=True)
-    nom = models.CharField(max_length=25)
+    username = models.CharField(max_length=25,unique=True,null=True)
     prenom = models.CharField(max_length=25, blank=True, null=True)
     e_mail = models.EmailField (max_length=15, blank=True, null=True)
     adresse = models.CharField(max_length=15)
     telephone = models.CharField(max_length=15, blank=True, null=True)
-    date_naissance = models.DateField()
-    profession = models.CharField(max_length=25)
+    date_naissance = models.DateField(null=True)
+    profession = models.CharField(max_length=25,null=True)
+    is_comissaire = models.BooleanField(default=False)
+    is_president = models.BooleanField(default=False)
+    is_secretaire = models.BooleanField(default=False)
+    is_membre = models.BooleanField(default=True)
 
     class Meta:
     
@@ -194,10 +198,10 @@ class Tontine(models.Model):
 
 
 class Vote(models.Model):
-    id_membre = models.ForeignKey(Membre, models.DO_NOTHING, db_column='id_membre')
-    id_election = models.ForeignKey(Election, models.DO_NOTHING, db_column='id_election')
-    id_poste = models.ForeignKey(Poste, models.DO_NOTHING, db_column='id_poste')
-    id_candidat = models.ForeignKey(Candidat, models.DO_NOTHING, db_column='id_candidat')
+    id_membre = models.ForeignKey('Membre', models.DO_NOTHING, db_column='id_membre')
+    id_election = models.ForeignKey('Election', models.DO_NOTHING, db_column='id_election')
+    id_poste = models.ForeignKey('Poste', models.DO_NOTHING, db_column='id_poste')
+    id_candidat = models.ForeignKey('Candidat', models.DO_NOTHING, db_column='id_candidat')
 
     class Meta:
         

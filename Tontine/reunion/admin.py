@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import User, AppartenirTontine,Candidat,Cotisation,Cotiser,Election,Fond, Membre,ParticipantReunion,Poste,Pret,Reunion,Tontine,Vote
+from .models import AppartenirTontine,Candidat,Cotisation,Cotiser,Election,Fond, Membre,ParticipantReunion,Poste,Pret,Reunion,Tontine,Vote
 
 
 # Register your models here.
 
 class AdminMembre(admin.ModelAdmin):
-    list_display=('id_membre','nom','prenom','e_mail','adresse','telephone','date_naissance','profession')
+    list_display=('id_membre','username','prenom','e_mail','adresse','telephone','date_naissance','profession')
 
 class AdminAppartenir(admin.ModelAdmin):
     list_display=('id_membre', 'id_tontine','statut','nbr_parts' )
@@ -47,7 +47,7 @@ class AdminVote(admin.ModelAdmin):
     list_display=('id_membre','id_election' ,'id_poste','id_candidat')
 
 
-admin.site.register(User)
+#admin.site.register(User)
 admin.site.register(AppartenirTontine,AdminAppartenir)
 admin.site.register(Candidat,AdminCandidat)
 admin.site.register(Cotisation,AdminCotisation)

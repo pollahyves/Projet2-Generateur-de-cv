@@ -10,7 +10,7 @@ def home(request):
     error = ''
     if request.method == 'POST':
         #on recupere le password et le username de lutilisateur
-        username = request.POST['username']
+        username= request.POST['username']
         password = request.POST['password']
         user = authenticate(request,username=username,password=password)
         if user is not None:#si lutilisateur exist
