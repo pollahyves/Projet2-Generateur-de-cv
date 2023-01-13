@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <title>New Tontine | login</title>
+</head>
+<body>
+    <center>
+    <h1>Sign in to your account</h1>
+<h3>{{ error }}</h3>
+
+<form method="post">
+{% csrf_token %}
+ <div>
+    <img class="mb-4" src="{% static 'image/logo.JPG' %}" alt="image" width="200" height="150">
+
+    </div>
+    <input type="text" name="username" placeholder="Entrer votre nom dutilisateur">
+    <br><br>
+ <input type="password" name="password" placeholder="Entrer votre mot de passe">
+ <br><br>
+  <div>
+<button class="w-20 btn btn-lg btn-primary" type="submit">Sign in</button>
+<div>
+ <small id="emailHelp" class="form-text text-muted">Create An Account <a
+ href="{% url 'register' %}">Create An Account</a></small><br />
+
+</div>
+</form>
+</div>
+   </center>
+</body>
+</html>
