@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tontine</title>
+    <link rel = "stylesheet" href = "{% static 'css/bootstrap.css' %}" >
+</head>
+<body>
+    <nav class = "navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd">
+        <button class="navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarSupportedContent" aria-expanded = "false" aria-label="Toggle navigation">
+            <span class = "navbar-toggler-icon"></span>
+        </button>
+
+        <div class ="collapse navbar-collapse" id = "navbarSupportedContent">
+            <ul class = "navbar-nav mr-auto">
+                <li class="nav-item activate">
+                    <a class = "nav-link text-dark" href="{% url 'home' %}">Home_Page <span class="sr-only">(current)</span></a>
+                </li>
+                <li class ="nav-item" >
+                    <a class = "nav-link text-dark" href = "{% url 'structure' %}">Module Structure</a>
+                </li>
+                <li class="nav-item activate">
+                    <a class = "nav-link text-dark" href="{% url 'finance' %}">Module Finance<span class="sr-only"></span></a>
+                </li>
+                <li class ="nav-item" >
+                    <a class = "nav-link text-dark" href = "{% url 'rapport' %}">Module Rapport et satistique</a>
+                </li>
+                
+            </ul>
+            <br><br><br><br><br>
+
+            
+        </div>
+    </nav>
+
+    <div>
+        <br><br>
+        <h2 align = "center">Dans cette partie, les informations concernant les reunions sont disponibles .</h2>
+        <br><br><br>
+    </div>
+
+    <div class="row align-items-center">  
+        <br>  
+        <a class="btn btn-primary" href="#" role="button" class="btn btn-primary btn-lg btn-block">Creer Tontine</a><br>
+        <a class="btn btn-primary" href="#" role="button" class="btn btn-primary btn-lg btn-block">Rechercher tontine</a><br>
+        <a class="btn btn-primary" href="#" role="button" class="btn btn-primary btn-lg btn-block">Lister les tontines disponibles</a><br>
+        <a class="btn btn-primary" href="#" role="button" class="btn btn-primary btn-lg btn-block">Mettre a jour une tontine</a><br>
+        <a class="btn btn-primary" href="#" role="button" class="btn btn-primary btn-lg btn-block">Dissoudre une tontine</a><br>
+    
+    </div>
+    <br>
+    <br>
+    <br>
+
+    
+    <section class="">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #205f9b;">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0"><br><br>
+            <!-- Section: CTA -->
+          </div>
+          <!-- Grid container -->
+      
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-white">Merci de nous avoir fait confiance</a><br><br>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </section>
+
+    <script src = "js/query-3.6.1.min.js"></script>
+    <script src = "{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

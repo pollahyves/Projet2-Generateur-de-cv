@@ -6,11 +6,6 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-# class User(AbstractUser):
-#     is_comissaire = models.BooleanField(default=False)
-#     is_president = models.BooleanField(default=False)
-#     is_secretaire = models.BooleanField(default=False)
-#     is_membre = models.BooleanField(default=True)
 
 class AppartenirTontine(models.Model):
     id_membre = models.ForeignKey('Membre', models.DO_NOTHING, db_column='id_membre' )
@@ -25,9 +20,7 @@ class AppartenirTontine(models.Model):
 
 
     def __str__(self):
-        return self.nbr_parts
-
-
+        return str(self.nbr_parts)
 
 
 class Candidat(models.Model):
@@ -40,11 +33,8 @@ class Candidat(models.Model):
     
         db_table = 'Candidat'
 
-    # def __str__(self):
-    #     return self.id_candidat
-
-    # def __str__(self):
-    #     return self.id_poste        
+    def __str__(self):
+        return str(self.id_candidat)  
 
 class ContribuerFond(models.Model):
     id_fond = models.ForeignKey('Fond', models.DO_NOTHING, db_column='id_fond')
@@ -69,7 +59,8 @@ class Cotisation(models.Model):
     class Meta:
     
         db_table = 'Cotisation'
-
+    def __str__(self):
+        return self.nom_cotisation
 
 class Cotiser(models.Model):
     id_membre = models.ForeignKey('Membre', models.DO_NOTHING, db_column='id_membre')
@@ -96,6 +87,9 @@ class Election(models.Model):
     
         db_table = 'Election'
 
+    def __str__(self):
+        return str(self.id_election)           
+
 
 class Fond(models.Model):
     id_fond = models.AutoField(primary_key=True)
@@ -110,6 +104,8 @@ class Fond(models.Model):
     
         db_table = 'Fond'
 
+    def __str__(self):
+        return str(self.id_fond)   
 
 class Membre(AbstractUser):
     id_membre = models.AutoField(primary_key=True)
@@ -120,16 +116,14 @@ class Membre(AbstractUser):
     telephone = models.CharField(max_length=15, blank=True, null=True)
     date_naissance = models.DateField(null=True)
     profession = models.CharField(max_length=25,null=True)
-    is_comissaire = models.BooleanField(default=False)
-    is_president = models.BooleanField(default=False)
-    is_secretaire = models.BooleanField(default=False)
-    is_membre = models.BooleanField(default=True)
 
     class Meta:
     
         db_table = 'Membre'
     
 
+    def __str__(self):
+        return str(self.id_membre)   
 
 
 
@@ -150,7 +144,8 @@ class Poste(models.Model):
     class Meta:
     
         db_table = 'Poste'
-
+    def __str__(self):
+        return str(self.id_poste)
 
 class Pret(models.Model):
     id_pret = models.AutoField(primary_key=True)
@@ -168,6 +163,8 @@ class Pret(models.Model):
         
         db_table = 'Pret'
 
+    def __str__(self):
+        return str(self.id_pret)   
 
 class Reunion(models.Model):
     id_reunion = models.AutoField(primary_key=True)
@@ -183,6 +180,8 @@ class Reunion(models.Model):
         
         db_table = 'Reunion'
 
+    def __str__(self):
+        return str(self.id_reunion)   
 
 class Tontine(models.Model):
     id_tontine = models.AutoField(primary_key=True)
@@ -196,6 +195,8 @@ class Tontine(models.Model):
         db_table = 'Tontine'
         
 
+    def __str__(self):
+        return str(self.id_tontine)   
 
 class Vote(models.Model):
     id_membre = models.ForeignKey('Membre', models.DO_NOTHING, db_column='id_membre')
