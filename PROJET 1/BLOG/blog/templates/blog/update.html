@@ -11,11 +11,11 @@
     <hr>
     <h3>Commentaires</h3>
     
-    {% for comment in comments %}
+    {% for comment in comments %} <!--si il existe des commentaire ,alor-->
         <article>
             <strong class="text-align-left text-success">{{ comment.name }}</strong>  {{ comment.date_added }}
             <p style="font-family: Arial, Helvetica, sans-serif;">{{ comment.body }}</p>
-    {% empty %}
+    {% empty %}<!--si il n'existe pa de commentaire-->
              <p>Pas de commentaire</p> 
         </article>    
      {% endfor %}    
@@ -24,7 +24,7 @@
     
     <h3 class="mx-5">Ajouter un nouveau commentaire</h3>
     <form class="form-control form-comtrol-lg" action="" method="POST">
-        {% csrf_token %}
+        {% csrf_token %}<!--la securite de django sinon django va nous renvoyer une erreur-->
         {{ form.as_p }}
         <button type="submit" class="btn text-white bg-success">commenter</button>
     </form>

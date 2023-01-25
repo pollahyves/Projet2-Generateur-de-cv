@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav text-white me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link text-white" aria-current="page" href="">Home</a>
+              <a class="nav-link text-white" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" rel="nofollow"
@@ -90,12 +90,12 @@
 
     <!-- Jumbotron -->
     <div id="intro" class="p-5 text-center bg-light ">
-      <h1 class="mb-3  text-white display-4">Apprendre en pratiquant </h1>
-      <p class="mb-3 display-5 text-white">apprend la programmation informatique  avec donald programmeur </p>
-      <a class="btn btn-primary m-2" href="#1A" role="button" rel="nofollow"
+      <h1 class="mb-3  text-white display-4">BOBO BARBER </h1>
+      <p class="mb-3 display-5 text-white">your satisfaction first</p>
+      <!-- <a class="btn btn-primary m-2" href="#1A" role="button" rel="nofollow"
         target="_blank">Commence maintenant</a>
       <a class="btn btn-primary m-2" href="#" target="_blank"
-        role="button">Ebook django</a>
+        role="button">Ebook django</a> -->
     </div>
     <!-- Jumbotron -->
   </header>
@@ -112,27 +112,27 @@
    <!-- Pagination -->
   
    <nav class="my-4" aria-label="...">
-    {% if is_paginated %}
+    {% if is_paginated %} <!--cette condition va nous permetre de savoir si il ya encore des page a afficher-->
        <ul class="pagination  justify-content-center">
-         {% if page_obj.has_previous %}
+         {% if page_obj.has_previous %} <!--si il ya une page precedente-->
          <li class="page-item">
            <a class="page-link" href="{% url 'home' %}?page={{ page_obj.previous_page_number}}" tabindex="-1" aria-disabled="true">Precedent</a>
-         </li>
-         <li class="page-item"><a class="page-link" href="#">{{ page_obj.previous_page_numbe }}</a></li>
+         </li><!--page_obj.previous_page_number cest le nombre d'une page pour aller a la page precedente-->
+         <li class="page-item"><a class="page-link" href="#">{{ page_obj.previous_page_number }}</a></li>
          {% endif %}
 
          
          <li class="page-item active" aria-current="page">
            <a class="page-link" href="#">{{ page_obj.number }} <span class="sr-only">(current)</span></a>
          </li>
-          {% if page_obj.has_next %} 
+          {% if page_obj.has_next %} <!--si nous avons une page suivant-->
          <li class="page-item"><a class="page-link" href="#">{{ page_obj.next_page_number }}</a></li>
          <li class="page-item">
            <a class="page-link" href="{% url 'home' %}?page={{ page_obj.next_page_number }}">suivant</a>
-         </li>
+         </li>                      
          {% endif %}
-       </ul>
-     {% endif %}  
+       </ul>        
+     {% endif %}                              
      </nav>
  
 </div>
