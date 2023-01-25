@@ -1,0 +1,23 @@
+{% extends 'tontine/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <br>
+    <br>
+    <br />
+    <h1>Creer Une Reunion</h1>
+    <h5>Appartenant a la tontine</h5>
+    <form method="POST">
+        {% csrf_token %} {{form|crispy}}
+        <br />
+         <div class="form-group">
+                <input class="btn btn-success" type="submit" value="Save">
+            </div> 
+        <!-- <button class="btn btn-secondary" type="submit">Creer Reunion</button> -->
+        <!-- <script>
+            $("input", "textarea").addClass("form-control");
+        </script> -->
+    </form>
+</div>
+
+{% endblock %}

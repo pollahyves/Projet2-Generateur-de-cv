@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ici le module finance</title>
+    <link rel = "stylesheet" href = "{% static 'css/bootstrap.css' %}" >
+</head>
+<body>
+    <nav class = "navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd">
+        <button class="navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarSupportedContent" aria-expanded = "false" aria-label="Toggle navigation">
+            <span class = "navbar-toggler-icon"></span>
+        </button>
+
+        <div class ="collapse navbar-collapse" id = "navbarSupportedContent">
+            <ul class = "navbar-nav mr-auto">
+                <li class="nav-item activate">
+                    <a class = "nav-link text-dark" href="{% url 'home' %}">Home_Page <span class="sr-only">(current)</span></a>
+                </li>
+                <li class ="nav-item" >
+                    <a class = "nav-link text-dark" href = "{% url 'structure' %}">Module Structure</a>
+                </li>
+                <li class="nav-item activate">
+                    <a class = "nav-link text-dark" href="{% url 'finance' %}">Module Finance<span class="sr-only"></span></a>
+                </li>
+                <li class ="nav-item" >
+                    <a class = "nav-link text-dark" href = "{% url 'rapport' %}">Module  Rapport et satistique</a>
+                </li>
+                
+            </ul>
+            <br><br><br><br><br>
+            
+        </div>
+    </nav>
+
+    
+
+
+
+    <div style="background-color: rgba(22, 22, 58, 0.534);">  
+      <div class="row mx-auto p-5">
+          <div class="col-sm-3">
+            <div class="card " style="background-color: rgba(13, 10, 202, 0.938);">
+              <div class="card-body">
+                <h5 class="card-title text-white">Prets</h5>
+                <p class="card-text text-white">Ici vous trouverez les differentes options concernant les prets selon votre statut.</p>
+                <a href="{% url 'pret_f' %}" class="btn btn-primary">Visitez</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card bg-dark mb-3">
+              <div class="card-body">
+                <h5 class="card-title text-white">Fonds</h5>
+                <p class="card-text p-0 mb-2 bg-dark text-white">Ici vous trouverez lezs differentes options concernaant les fonds selon votre statut.</p>
+                <a href="{% url 'fonds_f' %}" class="btn btn-primary">Visitez</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+              <div class="card bg-success mb-3">
+                <div class="card-body">
+                  <h5 class="card-title text-white">Cotisation</h5>
+                  <p class="card-text text-white">Ici vous trouverez les differentes options concernant les cotisations selon votre statut.</p>
+                  <a href="{% url 'cotisation_f' %}" class="btn btn-primary">Visitez</a>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <div style="background-color: rgba(22, 22, 58, 0.534);">  
+      <div class="row mx-auto p-5">
+          <div class="col-sm-3">
+              <div class="card " style="background-color: rgba(9, 43, 105, 0.753);">
+                <div class="card-body">
+                  <h5 class="card-title text-white">Mouvements d'actifs</h5>
+                  <p class="card-text text-white">Ici vous trouverez les differentes options concernant les mouvements d'actifs selon votre statut.</p>
+                  <a href="{% url 'actifs_f' %}" class="btn btn-primary">Visitez</a>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <section class="">
+      <!-- Footer -->
+      <footer class="text-center text-white" style="background-color: #205f9b;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0"><br><br>
+          <!-- Section: CTA -->
+        </div>
+        <!-- Grid container -->
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a class="text-white">Merci de nous avoir fait confiance</a><br><br>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+    </section>
+
+    <script src = "js/query-3.6.1.min.js"></script>
+    <script src = "{% static 'js/bootstrap' %}"></script>
+</body>
+</html>

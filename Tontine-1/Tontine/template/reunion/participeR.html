@@ -1,0 +1,23 @@
+{% extends "reunion/baseReunion.html" %}
+{% block content %}
+    <div class="container bg-light">
+        <div class="alert alert-success">{{ message }}</div>
+        
+        <h2>Signer la liste de presence</h2>
+        <br>
+        <form method="post" action="{% url 'Preunion' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <script>
+                let id = "{{user.id_membre}}";
+                document.getElementById("idm").value = id; 
+            </script>
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" value="Save">
+            </div> 
+        </form>
+    </div>
+    
+{% endblock content %}

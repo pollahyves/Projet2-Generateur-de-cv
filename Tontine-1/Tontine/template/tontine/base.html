@@ -1,0 +1,164 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title> Tontine</title>
+
+    <style>
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .form-control-dark {
+            color: #fff;
+            background-color: var(--bs-dark);
+            border-color: var(--bs-gray);
+        }
+
+        .form-control-dark:focus {
+            color: #fff;
+            background-color: var(--bs-dark);
+            border-color: #fff;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle {
+            outline: 0;
+        }
+
+        @media screen and (max-width:480px) {
+
+            h5,
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+     <nav class = "navbar navbar-expand-lg navbar-light" style="background-color: #dfe7ec">
+        <button class="navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarSupportedContent" aria-expanded = "false" aria-label="Toggle navigation">
+            <span class = "navbar-toggler-icon"></span>
+        </button>
+
+        <div class ="collapse navbar-collapse" id = "navbarSupportedContent">
+            <ul class = "navbar-nav mr-auto">
+                <li class="nav-item activate">
+                    <a class = "nav-link text-dark" href="{% url 'home' %}">Home_Page <span class="sr-only">(current)</span></a>
+                </li>
+                <li class ="nav-item" >
+                    <a class = "nav-link text-dark" href = "{% url 'structure' %}">Module Structure</a>
+                </li>
+                <li class="nav-item activate">
+                    <a class = "nav-link text-dark" href="{% url 'finance' %}">Module Finance<span class="sr-only"></span></a>
+                </li>
+                <li class ="nav-item" >
+                    <a class = "nav-link text-dark" href = "{% url 'rapport' %}">Module Rapport et satistique</a>
+                </li>
+                
+            </ul>
+            <br>
+            <br><br><br><br>
+            
+        </div>
+    </nav>
+    </script>
+                
+            {% block content %} {% endblock %}
+
+    <!-- <section id='contents'>
+        <div class="container">
+           
+            <!<div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div> 
+            <div class="alert alert-{{message.tags}} d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>
+                    {{message}}
+                </div>
+            </div>
+            ->
+        </div>
+    </section> -->
+    <script src="{% static 'vendors/glightbox/js/glightbox.min.js' %}"></script>
+    <!-- <script src="{% static 'js/my.js' %}"></script>-->
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            setInterval(
+                function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/getNotification/',
+                        success: function (response) {
+                            console.log(response.message);
+                            $("#msg").text(response.msg)
+                        },
+                        error: function (response) {
+
+                        }
+                    });
+                }, 1000
+            );
+        })
+    </script>
+     <section class="">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #205f9b;">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0"><br><br>
+            <!-- Section: CTA -->
+          </div>
+          <!-- Grid container -->
+      
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-white">Merci de nous avoir fait confiance</a><br><br>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </section>
+
+    <script src = "js/query-3.6.1.min.js"></script>
+    <script src = "{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="image" href="{% static 'image/logo.JPG' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Tontine | Register</title>
+     <style>
+        input[type=text],
+        input[type=password],
+        input[type=file],
+        input[type=date],
+        input[type=email] {
+            width: 30%;
+            box-sizing: border-box;
+            border: 2px solid rgb(69, 223, 228);
+            border-radius: 4px;
+            font-size: 16px;
+            margin-left: 4px;
+            margin-right: 10px;
+            background-color: white;
+            padding: 12px 20px 12px 10px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            border: 3px solid rgba(6, 201, 226, 0.795);
+        }
+
+        label {
+            padding-left: 4px;
+        }
+
+        input[type=submit],
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 90%;
+            padding: 5px 5px 5px 5px;
+            display: block;
+            justify-content: center;
+        }
+
+        @media screen and (min-width:480px) {
+            .container {
+                width: 50%;
+                padding: 5px 5px 5px 5px;
+                display: block;
+            }
+
+            input {
+
+                margin-right: 10px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    
+   
+    <center>
+        <div class="shadow container">
+        <main class="form-signin">
+       <br />
+            <div>
+                <img style="display:block;margin-left:auto;margin-right:auto" class="mb-4"
+                    src="{% static 'image/logo.JPG' %}" alt="logo" width="200" height="150">
+
+            </div>
+   <h1>Register to your Account</h1>
+<form method="post">
+{% csrf_token %}
+   {{form.as_p}}
+<small class="form-text text-muted"><h6>Already Have an account.<a href="{% url 'Login' %}">login</a></h6></small>
+  
+<button class="w-10 btn btn-lg btn-primary" type="submit">Send</button>
+  <br>
+  <div>
+            <p style="text-align: center;">© 2023 Copyright<i class="fas fa-copyright"></i>2022</p>
+            <br />
+  </div>
+<div>
+     </main>
+    </div>
+
+    </center>
+    
+</body>
+</html>

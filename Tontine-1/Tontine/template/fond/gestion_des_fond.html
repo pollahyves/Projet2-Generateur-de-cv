@@ -1,0 +1,38 @@
+{% extends "fond/base_fond.html" %}
+{% block content %}
+    <br>
+    <h3> <u>Table Fond</u></h3>
+    <table class="table table-striped">
+        <thead class="thead bg-dark text-white">
+            <tr>
+                <th scope="col-md-2">ID_fond</th>
+                <th scope="col-md-2">type_fond</th>
+                <th scope="col-md-2">nom_fond</th>
+                <th scope="col-md-2">montant</th>
+                <th scope="col-md-2">objectif</th>
+                <th scope="col-md-2">Modifier</th>
+                <th scope="col-md-2">Supprimer</th>
+            </tr>
+        </thead>
+        
+    
+        {% for fond in fonds %}
+            <tr>
+               
+                <td>{{fond.id_fond}}</td>
+                <td>{{fond.type_fond}}</td>
+                <td>{{fond.nom_fond}}</td>
+                <td>{{fond.montant}}</td>
+                <td>{{fond.objectif}}</td>
+                
+                {% if fond.id_membre.id_membre == user.id_membre %}
+                <td><a href="{{ fond.get_absolute_url }}" class="btn btn-warning">modifier</a></td>
+                <td><a href="{% url 'delete_fond' fond.id_fond %}" class="btn btn-danger">supprimer</a></td>  
+                {% endif %}
+                
+           </tr>
+           
+        {% endfor%}
+    </table>
+
+{% endblock content %}
