@@ -1,0 +1,11 @@
+{% extends "pdf/base.html" %}
+
+{% block content %}   
+       
+   <h3 class="text-muted">Just fill the form to create your CV</h3>
+<form method="POST">
+{% csrf_token %}
+   {{form.as_p}}
+<button class="w-10 btn btn-lg btn-primary" type="submit">Cree</button>
+  <br>
+{% endblock %}

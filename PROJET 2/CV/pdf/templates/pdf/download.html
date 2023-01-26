@@ -1,0 +1,16 @@
+{% extends "pdf/base.html" %}
+
+{% block content%}
+<!--ici on veut afficher la liste des CV qui sont dans la base de donnees-->
+<h1 class="text-center m-3">Data base of all the CV</h1>
+{% for elmt in profile %}
+  <div class="row text-center">
+    <div class="col-md-6">
+        <h4>{{elmt.name}}</h4>
+    </div> 
+    <div class="col-md-5">
+        <a href="{{ elmt.id }}" class="btn btn-warning">Download</a>
+    </div> 
+</div>  <br>
+{% endfor %}
+{% endblock %}

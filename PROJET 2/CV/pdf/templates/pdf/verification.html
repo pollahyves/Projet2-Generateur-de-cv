@@ -1,0 +1,39 @@
+{% extends "pdf/base.html" %}
+
+{% block content%}
+  <h1>Verified the information of your CV</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <h2 class="text-white text-center">{{name}}</h2>
+  </nav>
+
+  <h4 class="title">CONTACT</h4>
+  <p>{{email}} <br> {{phone}} <br> {{address}}</p>
+
+  <h4 class="title">COMPETENCES</h4>
+  <p>{{competance}}}</p>
+
+  <h4 class="title">LANGUE</h4>
+  <p>{{langue}}} </p>
+
+  <h4 class="title">INTERETS</h4>
+  <p>{{interet}}</p>
+
+  <h4 class="title">OBJECTIFS</h4>
+  <p>{{objectif}}</p>
+
+  <h4 class="title">EXPERIENCES</h4>
+  <p>{{experiance}}</p>
+
+  <h4 class="title">EDUCATION</h4>
+  <p>{{education}}</p>
+
+  <h4 class="title">PROJETS</h4>
+  <p>{{projet}}</p>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<small class="text-white text-center">PikoCv Generator    {% now 'd-m-Y' %}</small>
+  </nav><br>
+
+  <a href="download" class="btn btn-primary text-white">Click here to download</a>
+{% endblock %}
